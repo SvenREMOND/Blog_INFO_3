@@ -4,8 +4,8 @@
         'driver' => 'mysql',
         'serveur' => 'localhost',
         'base' => 'blog_info_3',
-        'utilisateur' => 'root',
-        'mdp' => ''
+        'utilisateur' => 'admin',
+        'mdp' => 'admin'
     );
 
 ?>
