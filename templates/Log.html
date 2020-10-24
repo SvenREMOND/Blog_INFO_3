@@ -1,0 +1,48 @@
+{% extends "_base.html" %}
+
+{% block main %}
+
+<main class="log">
+
+    <h1>Connexion</h1>
+    <form method="POST" action="./index.php?action=Log&type=LogIn">
+        <p>
+            <label for="pseudo" require>Pseudo :</label>
+            <input type="text" name="pseudo" placeholder="Pseudo"/>
+        </p>
+        <p>
+            <label for="mdpconnect" require>Mot de passe :</label>
+            <input type="password" name="mdpconnect" placeholder="Mot de passe" />
+        </p>
+        <input type="submit" name="formconnexion" value="Se connecter !" />
+    </form>
+    
+    <h1>Inscription</h1>
+    <form method="POST" action="./index.php?action=Log&type=SignIn">
+        <p>
+            <label for="nom" require>Nom :</label>
+            <input type="text" name="nom" placeholder="Nom">
+        </p>
+        <p>
+            <label for="prenom" require>Prenom :</label>
+            <input type="text" name="prenom" placeholder="Prenom">
+        </p>
+        <p>
+            <label for="pseudo" require>Pseudo :</label>
+            <input type="text" name="pseudo" placeholder="Pseudo">
+        </p>
+        <p>
+            <label for="mdp" require>Mot de passe :</label>
+            <input type="password" name="mdp" placeholder="Mot de passe" />
+        </p>
+        <p>
+            <label for="mdp_confirm" require>Confirmer votre mot de passe :</label>
+            <input type="password" name="mdp_confirm" placeholder="Confirmer votre mot de passe">
+        </p>
+        <input type="submit" name="inscription" value="S'inscrire !" />
+    </form>
+</main>
+
+</main>
+
+{% endblock %}

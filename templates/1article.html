@@ -1,0 +1,73 @@
+{% extends "_base.html" %}
+
+{% block main %}
+
+<main class="unarticle">
+    <div class="article">
+        {% if article.id_user == session.id_user %}
+            <p class="user_button">
+                <a class="supp" href="./index.php?action=update&id={{ article.id_article }}">Modifier</a>
+                |  <a class="supp" href="./index.php?action=form&type=supp&id={{ article.id_article }}">X</a>
+            </p>
+        {% endif %}
+        
+        <h3> {{ article.titre_article }} </h3>
+        <div class="contenue">
+
+            <p> {{ article.contenu_article }} </p>
+            
+        </div>
+        <div>
+            <p class="info">{{ article.pseudo_user }} | {{ article.date_article }}</p>
+        </div>
+    </div>
+    <div class="comments">
+
+        <h4>Commentaire :</h4>
+
+        {% if session %}
+                
+            <form class="form__comments" action="./index.php?action=form&type=com&id={{ article.id_article }}" method="post">
+
+                <textarea name="comment_content" id="editor"></textarea>
+
+                <input class="com_parent" type="hidden" name="id_parent" value="">
+
+                <input type="submit" name="Commenter" value="Commenter">
+
+            </form>
+
+        {% endif %}
+
+        {% macro comments(commentaires, session) %}
+            {% for coms in commentaires %}
+                
+                <div class="comment">
+                    <p>{{ coms.pseudo_user }}</p>
+                    <p class="contenue">{{ coms.contenu_com }}</p>
+                    <p>{{ coms.date_com }}
+
+                    {% if session %}
+
+                        <a href=".comments" id="{{ coms.id_com }}" class="form_comment">Répondre</a>
+                        
+                    {% endif %}
+
+                    </p>
+
+                    {% if coms.children %}
+                    
+                        {{ _self.comments(coms.children, session) }}
+
+                    {% endif %}
+                </div>
+
+            {% endfor %}
+        {% endmacro %}
+
+        {{ _self.comments(commentaires, session) }}
+
+    </div>
+</main>
+
+{% endblock %}

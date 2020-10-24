@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+
+{% block main %}
+
+<main class="main_index">
+
+    {% for cat in categorie %}
+        <a href="./index.php?action={{ cat.nom_cat|lower }}">
+            <div>
+                <h2>{{ cat.nom_cat }}</h2>
+                <img 
+                {% if cat.nom_cat == 'PHP' %}
+                    class="PHP"
+                {% endif %} src="./img/{{ cat.nom_cat }}.png" alt="Logo {{ cat.nom_cat }}">
+            </div>
+        </a>
+    {% endfor %}
+
+   
+</main>
+
+{% endblock %}

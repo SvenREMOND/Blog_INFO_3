@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+
+{% block main %}
+
+<main class="articles">
+    {% for article in articles %}
+        
+    <a href="./index.php?action=1article&id={{ article.id_article }}">
+        <div>
+            <h3> {{ article.nom_cat }} : {{ article.titre_article }} </h3>
+            <div>
+                <p class="date"> {{ article.date_article }} </p><a href="" class="autheur"> {{ article.pseudo_user }} </a>
+            </div>
+        </div>
+    </a>
+    
+    {% endfor %}
+</main>
+
+{% endblock %}

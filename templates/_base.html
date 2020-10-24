@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./js/wysibb/theme/default/wbbtheme.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="./js/wysibb/jquery.wysibb.min.js"></script>
+    <script src="./js/wysibb/lang/fr.js"></script>
+    <script>
+        $(document).ready(function () {
+            var wbbOpt = {
+                lang: "fr",
+                buttons: "bold,italic,underline,|,justifyleft,justifycenter,justifyright,|,fontcolor,|,bullist,numlist,|,code"
+            }
+            $("#editor").wysibb(wbbOpt);
+        });
+    </script>
+    <title>MMI_Codes_Blog</title>
+</head>
+
+<body>
+    <header>
+        <h1>Blog Codes des MMI</h1>
+        <nav>
+            
+            <div><a href="./index.php">Acceuil</a></div>
+            <div><a href="./index.php">Catégories</a></div>
+            <div><a href="./index.php?action=NewArticles">Articles récents</a></div>
+            
+            {% if session.co == true %}
+                <div><a href="./index.php?action=form">Ajouter un article</a></div>
+                        
+                <div><a href="./index.php?action=Log&type=Out">Deconexion</a></div>
+            {% else %}
+                <div><a href="./index.php?action=Log">Connexion/Inscription</a></div>
+            {% endif %}
+                        
+        </nav>
+    </header>
+
+    {% block main %}
+        
+    {% endblock %}
+
+    <footer>
+        <p>Blog créer par REMOND Sven</p>
+    </footer>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
