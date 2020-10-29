@@ -140,7 +140,7 @@ div img{
 /* Articles */
 /* ******** */
 
-.articles{
+.main__articles{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -152,7 +152,10 @@ div img{
     padding: 10px;
 }
 
-
+.articles{
+    width: 1000px;
+    padding: 10px;
+}
 
 /* ******** */
 /* 1Article */
